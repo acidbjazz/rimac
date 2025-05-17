@@ -54,6 +54,11 @@ $sans: var(--sans)
   @media (width < 900px)
     font-size: 14px
 
+@mixin body-strong
+  @include font($sans, 14px, 600, 140%, .2px, none)
+  @media (width < 900px)
+    font-size: 14px
+
 @mixin metadata
   @include font($sans, 12px, 600, 140%, .2px, none)
   @media (width < 900px)
@@ -63,6 +68,22 @@ $sans: var(--sans)
   @include font($sans, 18px, 700, 140%, .4px, none)
   @media (width < 900px)
     font-size: 18px
+
+@mixin tag
+  @include font($sans, 14px, 700, 140%, .4px, none)
+  @media (width < 900px)
+    font-size: 14px
+
+@mixin title
+  @include font($sans, 32px, 700, 120%, 0px, none)
+  @media (width < 900px)
+    font-size: 32px
+
+@mixin button
+  @include font($sans, 20px, 700, 140%, .4px, none)
+  @media (width < 900px)
+    font-size: 20px
+  
 
 //RADIUS
 
