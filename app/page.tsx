@@ -1,3 +1,9 @@
+import styles from "@styles/home.module.sass";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <section className={styles.home}>
+      <div className={styles.content}>Home</div>
+    </section>
+  );
 }

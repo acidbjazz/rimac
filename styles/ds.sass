@@ -1,0 +1,87 @@
+//COLORS
+
+$brand-60: #F7052D
+$neutral-0: #FFFFFF
+$neutral-10: #F8F9FF
+$neutral-70: #5E6488
+$neutral-100: #000000
+$aqua-60: #00F4E2
+$lemon-60: #00FF7F
+
+//SPACING
+
+$unit: 16px
+@function gap($times:1)
+  @return $unit * $times
+
+// DIMENSIONS
+
+$page-width: 1120px
+$columns: 12
+
+// GRID
+
+$gutter: 32px
+$column-width: calc((#{$page-width} - (#{$gutter} * (#{$columns} - 1))) / #{$columns});
+
+@mixin grid-system
+  display: grid
+  grid-template-columns: 1fr repeat(#{$columns}, minmax(0, #{$column-width})) 1fr
+  gap: 0 #{$gutter}
+
+@mixin wrap($column)
+  @if ($column == "full")
+    grid-column: 1 / -1
+  @else if($column == "main")
+    grid-column: 2 / -2
+  @else
+    grid-column: #{$column + 2} / -#{$column + 2}
+
+//TYPOGRAPHY
+
+$sans: var(--sans)
+
+@mixin font($family, $size, $weight, $line-height, $letter-spacing, $text-transform)
+  font-family: $family
+  font-size: $size
+  font-weight: $weight
+  line-height: $line-height
+  letter-spacing: $letter-spacing
+  text-transform: $text-transform
+
+@mixin body
+  @include font($sans, 14px, 400, 140%, 0px, none)
+  @media (width < 900px)
+    font-size: 14px
+
+@mixin metadata
+  @include font($sans, 12px, 600, 140%, .2px, none)
+  @media (width < 900px)
+    font-size: 12px
+
+@mixin link
+  @include font($sans, 18px, 700, 140%, .4px, none)
+  @media (width < 900px)
+    font-size: 18px
+
+//RADIUS
+
+//Z-INDEX
+
+// TIMES
+
+$t-xl: 1600ms
+$t-l: 800ms
+$t-m: 400ms
+$t-s: 200ms
+$t-xs: 100ms
+
+// EASES
+  
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1)
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035)
+$ease: $easeOutExpo
+
+// TRANSITION
+
+$transition: all $t-l $ease

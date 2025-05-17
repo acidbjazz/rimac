@@ -1,0 +1,15 @@
+@use "ds" as *
+
+.footer
+  background: $neutral-100
+  color: $neutral-0
+  +grid-system
+  .content
+    +wrap(main)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: gap(2) 0
+    .logo
+      fill: $neutral-0
+      transform: scale(1.17);

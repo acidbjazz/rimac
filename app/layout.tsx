@@ -1,17 +1,12 @@
+import "@styles/reset.css";
+import "@styles/ds.sass";
+import styles from "@styles/rootLayout.module.sass";
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { sans } from "@lib/fonts";
+
 import Header from "@components/header";
 import Footer from "@components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Seguro de Salud Flexible | RIMAC Seguros",
@@ -26,8 +21,8 @@ type RootLayout = {
 export default function RootLayout({ children }: RootLayout) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div>
+      <body className={`${styles.body} ${sans.variable} `}>
+        <div className={styles.layout}>
           <Header />
           <main>{children}</main>
           <Footer />
