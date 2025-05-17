@@ -1,0 +1,17 @@
+@use "ds" as *
+
+.button
+  color: $neutral-0
+  border-radius: gap(2)
+  padding: gap() gap(2)
+  // margin-top: gap(1.5)
+  transition: all $t-m $ease
+  +button
+  &.primary
+    background: $neutral-100
+    &:hover
+      background: $neutral-80
+  &.brand
+    background: $brand-60
+    &:hover
+      background: $brand-80

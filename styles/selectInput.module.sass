@@ -1,0 +1,25 @@
+@use "ds" as *
+
+.selectinput
+  display: flex
+  flex-direction: column
+  gap: gap(.25)
+  label
+    +body-strong
+  > div
+    display: flex
+    select, input
+      padding: gap(.75)
+      border: 1px solid $neutral-70
+    select
+      appearance: none
+      flex-shrink: 0
+      width: 80px
+      border-radius: gap(.25) 0 0 gap(.25)
+      background-image: url("../assets/arrow-down.svg")
+      background-repeat: no-repeat
+      background-position: right gap(.75) center
+    input
+      margin-left: -1px
+      width: 100%
+      border-radius: 0 gap(.25) gap(.25) 0
