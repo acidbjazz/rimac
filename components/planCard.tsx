@@ -1,4 +1,4 @@
-import styles from "@styles/card.module.sass";
+import styles from "@styles/planCard.module.sass";
 
 import Card from "@components/card";
 import Button from "@/components/button";
@@ -8,17 +8,10 @@ interface PlanCard {
   title: string;
   description: string[];
   price: number;
-  age: number;
   className?: string;
 }
 
-export default function planCard({
-  title,
-  description,
-  price,
-  age: _age,
-  className = "",
-}: PlanCard) {
+export default function planCard({ title, description, price, className = "" }: PlanCard) {
   return (
     <Card className={`${styles.planCard} ${className}`}>
       <div className={styles.header}>

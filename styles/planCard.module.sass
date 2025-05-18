@@ -1,0 +1,29 @@
+@use "ds" as *
+
+.planCard
+  display: flex
+  flex-direction: column
+  gap: gap(1.5)
+  .header
+    display: flex
+    gap: gap()
+    border-bottom: 1px solid $neutral-20
+    padding-bottom: gap(1.5)
+    .intro
+      h2
+        margin-bottom: gap(1.5)
+        +subtitle
+      .priceLabel
+        color: $neutral-60
+        +metadata
+      .price
+        +button
+    .icon
+      flex-shrink: 0
+  ul
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    gap: gap(1.5)
+  .button
+    +link

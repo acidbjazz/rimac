@@ -94,7 +94,7 @@ export default function Plans() {
               title={plan.name}
               description={plan.description}
               price={plan.price}
-              age={plan.age}
+              // age={plan.age}
             />
           ))}
         </div>

@@ -38,7 +38,8 @@ p {
 
 ol,
 ul {
-  list-style-position: inside;
+  /* list-style-position: outside; */
+  margin-left: 0.75rem;
 }
 
 img,

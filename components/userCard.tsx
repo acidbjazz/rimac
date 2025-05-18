@@ -1,4 +1,4 @@
-import styles from "@styles/card.module.sass";
+import styles from "@styles/userCard.module.sass";
 
 import Card from "@components/card";
 
