@@ -12,7 +12,13 @@ interface PlanCard {
   className?: string;
 }
 
-export default function planCard({ title, description, price, age, className = "" }: PlanCard) {
+export default function planCard({
+  title,
+  description,
+  price,
+  age: _age,
+  className = "",
+}: PlanCard) {
   return (
     <Card className={`${styles.planCard} ${className}`}>
       <div className={styles.header}>
