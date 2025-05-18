@@ -1,0 +1,32 @@
+@use "ds" as *
+  
+.progressBar
+  +grid-system
+  .steps
+    background: $neutral-20
+    +wrap(full)
+    display: flex
+    justify-content: center
+    gap: gap()
+    padding: gap() 0
+  .navigation
+    +wrap(1)
+    padding: gap(2.5) 0
+
+.step
+  display: flex
+  align-items: center
+  gap: gap()
+  .number
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    border: 1px solid $blue-60
+    background: $blue-60
+    color: $neutral-0
+    display: flex
+    align-items: center
+    justify-content: center
+    +metadata
+  .name
+    +body-strong

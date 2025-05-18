@@ -28,7 +28,13 @@ export default function SelectInput({
             </option>
           ))}
         </select>
-        <input id={id} type="text" placeholder={placeholder} required={required} />
+        <input
+          id={id}
+          type="text"
+          placeholder={placeholder}
+          required={required}
+          autoComplete="off"
+        />
       </div>
     </div>
   );

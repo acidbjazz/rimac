@@ -4,11 +4,15 @@ $brand-60: #F7052D
 $brand-80: #DE213B
 $neutral-0: #FFFFFF
 $neutral-10: #F8F9FF
+$neutral-20: #EDEFFC
+$neutral-60: #7981B2
 $neutral-70: #5E6488
 $neutral-80: #2B304E
 $neutral-100: #000000
 $aqua-60: #00F4E2
 $lemon-60: #00FF7F
+$blue-60: #4F4FFF
+$green-60: #389E0D
 
 //SPACING
 
@@ -29,7 +33,7 @@ $column-width: calc((#{$page-width} - (#{$gutter} * (#{$columns} - 1))) / #{$col
 @mixin grid-system
   display: grid
   grid-template-columns: 1fr repeat(#{$columns}, minmax(0, #{$column-width})) 1fr
-  gap: 0 #{$gutter}
+  gap: #{$gutter}
 
 @mixin wrap($column)
   @if ($column == "full")
@@ -81,6 +85,11 @@ $sans: var(--sans)
   @media (width < 900px)
     font-size: 32px
 
+@mixin subtitle
+  @include font($sans, 24px, 700, 120%, 0px, none)
+  @media (width < 900px)
+    font-size: 24px
+
 @mixin button
   @include font($sans, 20px, 700, 140%, .4px, none)
   @media (width < 900px)
@@ -107,4 +116,4 @@ $ease: $easeOutExpo
 
 // TRANSITION
 
-$transition: all $t-l $ease
+$transition: all $t-m $ease

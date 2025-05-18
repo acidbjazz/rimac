@@ -1,6 +1,31 @@
 @use "ds" as *
 
-.plans
-  +grid-system
-  .content
-    +wrap(main)
+.plansPage
+  margin-bottom: gap(2)
+  .form
+    +grid-system
+    .intro
+      +wrap(3)
+      display: flex
+      flex-direction: column
+      gap: gap(.5)
+      h1
+        text-align: center
+        +title
+      > p
+        text-align: center
+    .users
+      +wrap(3)
+      display: flex
+      gap: $gutter
+      > label
+        display: flex
+        flex: 1
+    .plans
+      +wrap(1)
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      gap: $gutter
+      > div
+        flex: 1
+      
