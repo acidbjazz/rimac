@@ -1,7 +1,7 @@
-import styles from "@styles/progressBar.module.sass";
+import styles from "./progressBar.module.sass";
 
-import IconLink from "@components/iconLink";
-import ArrowBack from "@assets/arrow-back.svg";
+import IconLink from "@components/link/iconLink";
+import ArrowBack from "@assets/icons/arrow-back.svg";
 
 interface Step {
   number: string;

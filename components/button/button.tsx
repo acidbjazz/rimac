@@ -1,4 +1,4 @@
-import styles from "@styles/button.module.sass";
+import styles from "./button.module.sass";
 
 interface Button {
   variant?: "primary" | "brand";

@@ -1,11 +1,11 @@
-import styles from "@styles/plans.module.sass";
+import styles from "./plans.module.sass";
 
-import ProgressBar from "@components/progressBar";
-import UserCard from "@components/userCard";
-import PlanCard from "@components/planCard";
+import ProgressBar from "@components/layout/progressBar";
+import UserCard from "@components/card/userCard";
+import PlanCard from "@components/card/planCard";
 
-import PlanMe from "@assets/plan-me.svg";
-import PlanSomebody from "@assets/plan-somebody.svg";
+import PlanMe from "@assets/icons/plan-me.svg";
+import PlanSomebody from "@assets/icons/plan-somebody.svg";
 
 const data = {
   list: [

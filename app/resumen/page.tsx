@@ -1,4 +1,4 @@
-import styles from "@styles/summary.module.sass";
+import styles from "./summary.module.sass";
 
 export default function Summary() {
   return (

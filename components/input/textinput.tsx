@@ -1,4 +1,4 @@
-import styles from "@styles/textinput.module.sass";
+import styles from "./textinput.module.sass";
 
 interface TextInput {
   label: string;

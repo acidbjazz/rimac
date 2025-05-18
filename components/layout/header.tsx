@@ -1,8 +1,8 @@
-import styles from "@styles/header.module.sass";
+import styles from "./header.module.sass";
 
 import Link from "next/link";
-import Logo from "@assets/logo.svg";
-import Phone from "@assets/phone.svg";
+import Logo from "@assets/icons/logo.svg";
+import Phone from "@assets/icons/phone.svg";
 
 export default function Header() {
   return (

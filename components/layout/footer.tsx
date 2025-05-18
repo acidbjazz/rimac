@@ -1,6 +1,6 @@
-import styles from "@styles/footer.module.sass";
+import styles from "./footer.module.sass";
 
-import Logo from "@assets/logo.svg";
+import Logo from "@assets/icons/logo.svg";
 
 export default function Footer() {
   const year = new Date().getFullYear();

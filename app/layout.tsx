@@ -5,8 +5,8 @@ import styles from "@styles/rootLayout.module.sass";
 import type { Metadata } from "next";
 import { sans } from "@lib/fonts";
 
-import Header from "@components/header";
-import Footer from "@components/footer";
+import Header from "@components/layout/header";
+import Footer from "@components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Seguro de Salud Flexible | RIMAC Seguros",

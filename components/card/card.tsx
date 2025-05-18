@@ -1,4 +1,4 @@
-import styles from "@styles/card.module.sass";
+import styles from "./card.module.sass";
 
 interface Card {
   children: React.ReactNode;

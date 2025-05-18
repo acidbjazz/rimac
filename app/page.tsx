@@ -1,11 +1,11 @@
 import styles from "@styles/home.module.sass";
 
 import Image from "next/image";
-import Family from "@assets/family.webp";
-import SelectInput from "@/components/selectInput";
-import TextInput from "@/components/textinput";
-import Checkbox from "@/components/checkbox";
-import Button from "@/components/button";
+import Family from "@assets/images/family.webp";
+import SelectInput from "@/components/input/selectInput";
+import TextInput from "@/components/input/textinput";
+import Checkbox from "@/components/input/checkbox";
+import Button from "@/components/button/button";
 
 export default function Home() {
   const idTypes = [

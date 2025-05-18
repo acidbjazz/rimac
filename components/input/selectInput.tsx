@@ -1,4 +1,4 @@
-import styles from "@styles/selectInput.module.sass";
+import styles from "./selectInput.module.sass";
 
 interface SelectInputProps {
   label: string;

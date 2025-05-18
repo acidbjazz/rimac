@@ -1,4 +1,4 @@
-import styles from "@styles/iconLink.module.sass";
+import styles from "./iconLink.module.sass";
 
 import Link from "next/link";
 

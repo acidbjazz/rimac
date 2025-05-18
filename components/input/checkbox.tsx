@@ -1,4 +1,4 @@
-import styles from "@styles/checkbox.module.sass";
+import styles from "./checkbox.module.sass";
 
 interface Checkbox {
   label: string;

@@ -1,6 +1,6 @@
-import styles from "@styles/userCard.module.sass";
+import styles from "./userCard.module.sass";
 
-import Card from "@components/card";
+import Card from "@components/card/card";
 
 interface UserCard {
   title: string;

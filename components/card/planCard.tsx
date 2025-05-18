@@ -1,8 +1,8 @@
-import styles from "@styles/planCard.module.sass";
+import styles from "./planCard.module.sass";
 
-import Card from "@components/card";
-import Button from "@/components/button";
-import PlanHome from "@assets/plan-home.svg";
+import Card from "@components/card/card";
+import Button from "@/components/button/button";
+import PlanHome from "@assets/icons/plan-home.svg";
 
 interface PlanCard {
   title: string;
