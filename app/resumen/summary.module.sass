@@ -1,6 +1,34 @@
 @use "@styles/ds" as *
 
 .summary
-  +grid-system
   .content
-    +wrap(main)
+    margin-bottom: gap(2)
+    +grid-system
+    h1
+      +wrap(1)
+      +title
+    .card
+      display: flex
+      flex-direction: column
+      gap: gap()
+      +wrap(1)
+      .intro
+        padding-bottom: gap()
+        border-bottom: 1px solid $neutral-20
+        .userLabel
+          color: $neutral-60
+          margin-bottom: gap(.5)
+          +metadata
+        .user
+          display: flex
+          align-items: center
+          gap: gap(.75)
+          p
+            +button
+      .result
+        display: flex
+        flex-direction: column
+        gap: gap()
+        div
+          p:first-of-type
+            +body-strong

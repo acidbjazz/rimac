@@ -7,8 +7,19 @@
     +wrap(full)
     display: flex
     justify-content: center
+    align-items: center
     gap: gap()
     padding: gap() 0
+    .separator
+      width: 32px
+      height: 1px
+      background-image: repeating-linear-gradient(
+        to right,
+        $neutral-60,
+        $neutral-60 4px,
+        transparent 3px,
+        transparent 6px
+      )
   .navigation
     +wrap(1)
     padding: gap(2.5) 0
@@ -22,7 +33,6 @@
     height: 24px
     border-radius: 50%
     border: 1px solid $blue-60
-    background: $blue-60
     color: $neutral-0
     display: flex
     align-items: center
@@ -30,3 +40,13 @@
     +metadata
   .name
     +body-strong
+  &.active
+    .number
+      background: $blue-60
+  &.inactive
+    .number
+      background: $neutral-60
+      border-color: $neutral-60
+    .name
+      color: $neutral-60
+    

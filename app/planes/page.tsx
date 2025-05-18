@@ -65,7 +65,7 @@ const data = {
 export default function Plans() {
   return (
     <section className={styles.plansPage}>
-      <ProgressBar />
+      <ProgressBar href={"/"} activeStep="1" />
       <div className={styles.form}>
         <div className={styles.intro}>
           <h1 className={styles.title}>Rocío ¿Para quién deseas cotizar?</h1>
