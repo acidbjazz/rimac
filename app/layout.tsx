@@ -8,6 +8,8 @@ import { sans } from "@lib/fonts";
 import Header from "@components/layout/header";
 import Footer from "@components/layout/footer";
 
+import { AppProvider } from "@/lib/context";
+
 export const metadata: Metadata = {
   title: "Seguro de Salud Flexible | RIMAC Seguros",
   description:
@@ -22,11 +24,13 @@ export default function RootLayout({ children }: RootLayout) {
   return (
     <html lang="es">
       <body className={`${styles.body} ${sans.variable} `}>
-        <div className={styles.layout}>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <AppProvider>
+          <div className={styles.layout}>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </AppProvider>
       </body>
     </html>
   );
