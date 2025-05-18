@@ -1,26 +1,17 @@
 import styles from "./textinput.module.sass";
 
-interface TextInput {
+interface TextInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  id: string;
-  type?: string;
-  placeholder?: string;
-  required?: boolean;
+  error?: string;
   className?: string;
 }
 
-export default function TextInput({
-  label,
-  id,
-  type = "text",
-  placeholder = "",
-  required = false,
-  className = "",
-}: TextInput) {
+export default function TextInput({ label, error, className = "", ...props }: TextInput) {
   return (
     <div className={`${styles.input} ${className}`}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type={type} placeholder={placeholder} required={required} />
+      <label htmlFor={props.id}>{label}</label>
+      <input {...props} />
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }

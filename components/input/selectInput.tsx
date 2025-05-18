@@ -1,6 +1,6 @@
 import styles from "./selectInput.module.sass";
 
-interface SelectInputProps {
+interface SelectInput {
   label: string;
   id: string;
   options: { value: string; label: string }[];
@@ -16,7 +16,7 @@ export default function SelectInput({
   placeholder = "",
   required = false,
   className = "",
-}: SelectInputProps) {
+}: SelectInput) {
   return (
     <div className={`${styles.selectinput} ${className}`}>
       <label htmlFor={id}>{label}</label>
