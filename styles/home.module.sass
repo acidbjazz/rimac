@@ -2,7 +2,7 @@
 
 .home
   +grid-system
-  img
+  .image
     grid-column: 3 / 8
     margin: gap(2) 0
     border-radius: gap(1.5)
@@ -12,16 +12,20 @@
     display: flex
     flex-direction: column
     gap: gap(1.5)
-    > div
-      h1
-        padding: gap(.25) gap(.5)
-        background: linear-gradient(to right, $aqua-60, $lemon-60)
-        display: inline-block
-        border-radius: gap(.25)
-        +tag
-      h2
-        margin-top: gap()
-        +title
+    .intro
+      .columns
+        > div
+          h1
+            padding: gap(.25) gap(.5)
+            background: linear-gradient(to right, $aqua-60, $lemon-60)
+            display: inline-block
+            border-radius: gap(.25)
+            +tag
+          h2
+            margin-top: gap()
+            +title
+        .imageMobile
+          display: none
       .description
         margin-top: gap(.5)
         +body-strong
@@ -63,3 +67,38 @@
         display: inline-block
         text-decoration: underline
         +metadata
+
+@media (width < 900px)
+  .home
+    .image
+      grid-column: 3 / 7
+    .form
+      grid-column: 8 / -3
+
+@media (width < 600px)
+  .home
+    .image
+      display: none
+    .form
+      +wrap(main)
+      .intro
+        .columns
+          display: flex
+          align-items: center
+          gap: gap()
+          border-bottom: 1px solid $neutral-20
+          padding-bottom: gap(1.5)
+          .imageMobile
+            display: block
+            border-radius: gap(1.5)
+            width: 40%
+        .description
+          margin-top: gap(1.5)
+  
+  @media (width < 400px)
+    .home
+      .form
+        .intro
+          .columns
+            .imageMobile
+              display: none

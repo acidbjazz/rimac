@@ -32,3 +32,11 @@
         div
           p:first-of-type
             +body-strong
+
+@media (width < 900px)
+  .summary
+    .content
+      h1
+        +wrap(main)
+      .card
+        +wrap(main)

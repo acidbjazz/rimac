@@ -16,7 +16,8 @@
         text-align: center
     .targets
       +wrap(3)
-      display: flex
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
       gap: $gutter
       > label
         display: flex
@@ -29,3 +30,44 @@
       > div
         flex: 1
       
+@media (width < 1000px)
+  .plansPage
+    .form
+      .intro
+        +wrap(2)
+      .targets
+        +wrap(2)
+      .plans
+        +wrap(main)
+
+@media (width < 900px)
+  .plansPage
+    .form
+      .intro
+        +wrap(1)
+      .targets
+        +wrap(1)
+      .plans
+        +wrap(1)
+        grid-template-columns: repeat(1, 1fr)
+
+@media (width < 600px)
+  .plansPage
+    .form
+      gap: gap(2) gap(1)
+      .intro
+        h1
+          text-align: left
+        p
+          text-align: left
+        +wrap(main)
+      .targets
+        +wrap(main)
+        grid-template-columns: repeat(1, 1fr)
+        gap: gap()
+        > label
+          display: block
+      .plans
+        +wrap(main)
+        gap: gap()
+

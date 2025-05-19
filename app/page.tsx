@@ -126,9 +126,14 @@ export default function Home() {
     <section className={styles.home}>
       <Image className={styles.image} src={Family} alt="Family" priority />
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
-        <div>
-          <h1>Seguro Salud Flexible</h1>
-          <h2>Creado para ti y tu familia</h2>
+        <div className={styles.intro}>
+          <div className={styles.columns}>
+            <div>
+              <h1>Seguro Salud Flexible</h1>
+              <h2>Creado para ti y tu familia</h2>
+            </div>
+            <Image className={styles.imageMobile} src={Family} alt="Family" priority />
+          </div>
           <p className={styles.description}>
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100%
             online.

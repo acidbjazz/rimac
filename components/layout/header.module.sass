@@ -26,3 +26,18 @@
         gap: gap(.25)
         span
           +link
+
+@media (width < 900px)
+  .header
+    .content
+      nav
+        display: none
+
+@media (width < 600px)
+  .header
+    .content
+      .logo
+        scale: 0.9
+      .contact
+        .buy
+          display: none

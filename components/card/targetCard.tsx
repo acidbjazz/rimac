@@ -24,8 +24,10 @@ export default function targetCard({
       <input type="radio" name="opcion" value={value} onClick={onClick} />
       <Card className={styles.card}>
         <div className={styles.check}></div>
-        {Icon && <Icon />}
-        <h2>{title}</h2>
+        <div className={styles.intro}>
+          {Icon && <Icon />}
+          <h2>{title}</h2>
+        </div>
         <p>{description}</p>
       </Card>
     </label>
