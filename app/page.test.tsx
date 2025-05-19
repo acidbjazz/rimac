@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "./page"; // Importa tu componente Home
 import { AppContext } from "@lib/context"; // Importa tu Context
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { AppContext as AppContextType, Login, User, Plan } from "@lib/context"; // Importa los tipos
 import { useRouter } from "next/navigation";
 
@@ -14,6 +15,7 @@ jest.mock("next/navigation", () => ({
 // Mock de next/image
 jest.mock("next/image", () => ({
   __esModule: true,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: (props: any) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img {...props} alt={props.alt || "mocked image"} />;
@@ -61,6 +63,7 @@ describe("Formulario Home", () => {
   });
 
   it("debería mostrar un mensaje de error si el número de documento está vacío al intentar enviar", async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { container } = render(
       // Obtenemos container para selectores más específicos si es necesario
       <MockProviders>
