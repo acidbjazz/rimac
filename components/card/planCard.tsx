@@ -36,12 +36,8 @@ export default function PlanCard({
       age: 0, //this!!!!!
     };
     setElection(plan);
-
-    console.log("vámonos");
     router.push("/resumen");
   };
-
-  console.log(election);
 
   return (
     <Card className={`${styles.planCard} ${styles[target]} ${className}`}>
