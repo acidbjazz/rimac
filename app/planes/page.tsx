@@ -28,20 +28,20 @@ export default function Plans() {
   }, [logged, router]);
 
   useEffect(() => {
-    if (logged) {
+    if (logged && !user) {
       getUser().then((userData) => {
         setUser(userData);
       });
     }
-  }, [setUser, logged]);
+  }, [setUser, logged, user]);
 
   useEffect(() => {
-    if (logged) {
+    if (logged && !plan) {
       getPlans().then((plansData) => {
         setPlan(plansData);
       });
     }
-  }, [setPlan, logged]);
+  }, [setPlan, logged, plan]);
 
   if (!logged) {
     return null;
