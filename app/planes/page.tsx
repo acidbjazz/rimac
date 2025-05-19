@@ -5,15 +5,11 @@ import styles from "./plans.module.sass";
 import ProgressBar from "@components/layout/progressBar";
 import TargetCard from "@components/card/targetCard";
 import PlanCard from "@components/card/planCard";
-
 import PlanMe from "@assets/icons/plan-me.svg";
 import PlanSomebody from "@assets/icons/plan-somebody.svg";
-
 import { useAppContext } from "@lib/context";
 import { getUser, getPlans } from "@/lib/api";
-
 import { useEffect, useState } from "react";
-
 import { useAgeFromBirthday } from "@/lib/hooks";
 
 export default function Plans() {

@@ -1,10 +1,15 @@
+"use client";
+
 import styles from "./summary.module.sass";
 
 import ProgressBar from "@components/layout/progressBar";
 import Card from "@components/card/card";
 import Family from "@assets/icons/family.svg";
+import { useAppContext } from "@lib/context";
 
 export default function Summary() {
+  const { user, login, election } = useAppContext();
+  console.log(election);
   return (
     <section className={styles.summary}>
       <ProgressBar href={"/planes"} activeStep="2" />
@@ -15,19 +20,23 @@ export default function Summary() {
             <p className={styles.userLabel}>PRECIOS CALCULADOS PARA:</p>
             <div className={styles.user}>
               <Family />
-              <p>Rocio Miranda Díaz</p>
+              <p>
+                {user?.name} {user?.lastName}
+              </p>
             </div>
           </div>
           <div className={styles.result}>
             <div>
               <p>Responsable de pago</p>
-              <p>DNI: 444888888</p>
-              <p>Celular: 5130216147</p>
+              <p>
+                {login?.idType === "dni" ? "DNI" : "C.E."}: {login?.idNumber}
+              </p>
+              <p>Celular: {login?.cell}</p>
             </div>
             <div>
               <p>Plan elegido</p>
-              <p>Plan en Casa y Clínica</p>
-              <p>Costo del Plan: $99 al mes</p>
+              <p>{election?.name}</p>
+              <p>Costo del Plan: ${election?.price} al mes</p>
             </div>
           </div>
         </Card>
