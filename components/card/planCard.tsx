@@ -25,7 +25,7 @@ export default function PlanCard({
   className = "",
 }: PlanCard) {
   const router = useRouter();
-  const { setElection, election } = useAppContext();
+  const { setElection } = useAppContext();
   const descountPrice = Math.floor(price * 0.95);
 
   const handleClick = () => {
