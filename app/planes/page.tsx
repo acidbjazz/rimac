@@ -27,21 +27,25 @@ export default function Plans() {
     }
   }, [logged, router]);
 
+  useEffect(() => {
+    if (logged) {
+      getUser().then((userData) => {
+        setUser(userData);
+      });
+    }
+  }, [setUser, logged]);
+
+  useEffect(() => {
+    if (logged) {
+      getPlans().then((plansData) => {
+        setPlan(plansData);
+      });
+    }
+  }, [setPlan, logged]);
+
   if (!logged) {
     return null;
   }
-
-  useEffect(() => {
-    getUser().then((userData) => {
-      setUser(userData);
-    });
-  }, [setUser]);
-
-  useEffect(() => {
-    getPlans().then((plansData) => {
-      setPlan(plansData);
-    });
-  }, [setPlan]);
 
   const handleTarget = (target: "me" | "other") => {
     if (!firstTargetClicked) {
