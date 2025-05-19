@@ -7,14 +7,20 @@ import TextInput from "@/components/input/textinput";
 import Checkbox from "@/components/input/checkbox";
 import Button from "@/components/button/button";
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { useAppContext } from "@lib/context";
+import { Login } from "@/lib/definitions";
 
 export default function Home() {
+  const router = useRouter();
+  const { setLogged, setLogin } = useAppContext();
+
   const [idType, setIdType] = useState<"dni" | "ce">("dni");
-  const [idNumber, setIdNumber] = useState("");
+  const [idNumber, setIdNumber] = useState("12345678");
   const [idNumberError, setIdNumberError] = useState("");
-  const [cell, setCell] = useState("");
+  const [cell, setCell] = useState("987654321");
   const [cellError, setCellError] = useState("");
-  const [privacy, setPrivacy] = useState(false);
+  const [privacy, setPrivacy] = useState(true);
   const [privacyError, setPrivacyError] = useState("");
   const [commercial, setCommercial] = useState(false);
   const [commercialError, setCommercialError] = useState("");
@@ -101,17 +107,18 @@ export default function Home() {
     if (currentCommercialError) formIsValid = false;
 
     if (formIsValid) {
-      const formData = {
+      const LoginData: Login = {
         idType,
         idNumber,
         cell,
         privacy,
         commercial,
       };
-      console.log("Formulario Válido. Datos:", formData);
-      console.log("Simulando navegación a /planes con los datos...");
-    } else {
-      console.log("Formulario con errores. Por favor, revise los campos.");
+      setLogin(LoginData);
+      setLogged(true);
+
+      console.log("Formulario Válido. Datos:", LoginData);
+      router.push("/planes");
     }
   };
 
@@ -191,126 +198,3 @@ export default function Home() {
     </section>
   );
 }
-
-// "use client";
-
-// import styles from "@styles/home.module.sass";
-
-// import Image from "next/image";
-// import Family from "@assets/images/family.webp";
-// import SelectInput from "@/components/input/selectInput";
-// import TextInput from "@/components/input/textinput";
-// import Checkbox from "@/components/input/checkbox";
-// import Button from "@/components/button/button";
-
-// import { useState, FormEvent } from "react";
-
-// export default function Home() {
-//   const [idType, setIdType] = useState<"dni" | "ce">("dni");
-//   const [idNumber, setIdNumber] = useState("");
-//   const [idNumberError, setIdNumberError] = useState("");
-//   const [cell, setCell] = useState("");
-//   const [cellError, setCellError] = useState("");
-//   // const [acceptTerms, setAcceptTerms] = useState(false);
-//   // const [sendPromo, setSendPromo] = useState(false);
-//   const idTypes = [
-//     { value: "dni", label: "DNI" },
-//     { value: "ce", label: "C.E." },
-//   ];
-
-//   // --- Manejador de cambio para Tipo de Documento (idType) ---
-//   const handleIdTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//     const newIdType = event.target.value as "dni" | "ce";
-//     setIdType(newIdType);
-//     // Importante: Limpiar idNumber y su error cuando idType cambia
-//     setIdNumber("");
-//     setIdNumberError("");
-//   };
-
-//   // --- Manejador de cambio para Número de Documento (idNumber) ---
-//   const handleIdNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     setIdNumber(event.target.value);
-//     if (idNumberError) {
-//       setIdNumberError(""); // Limpiar error al modificar
-//     }
-//   };
-
-//   const handleCellChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     setCell(event.target.value);
-//     if (cellError) {
-//       setCellError("");
-//     }
-//   };
-
-//   // --- Manejador de envío del formulario (se actualizará para incluir todas las validaciones) ---
-//   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-//     event.preventDefault();
-//     let formHasErrors = false; // Para rastrear si hay algún error en el formulario
-
-//     // Validación para 'cell' (como la tenías)
-//     const cellInput = event.currentTarget.elements.namedItem("cell") as HTMLInputElement;
-//     let currentCellError = "";
-//     if (cellInput.validity.valueMissing) {
-//       currentCellError = "El celular es requerido.";
-//     } else if (cellInput.validity.patternMismatch) {
-//       currentCellError = "El celular debe tener 9 dígitos numéricos.";
-//     }
-//     setCellError(currentCellError);
-//     if (currentCellError) formHasErrors = true;
-
-//     // Aquí añadiremos validación para idNumber (y idType si fuera necesario)
-
-//     if (formHasErrors) {
-//       console.log("Formulario con errores.");
-//       return;
-//     }
-
-//     console.log("Formulario parcialmente válido. Datos:", { idType, idNumber, cell });
-//     // Lógica para "pasar a la siguiente página" si todo es válido
-//   };
-
-//   return (
-//     <section className={styles.home}>
-//       <Image className={styles.image} src={Family} alt="Family" priority />
-//       <form className={styles.form} onSubmit={handleSubmit} noValidate>
-//         <div>
-//           <h1>Seguro Salud Flexible</h1>
-//           <h2>Creado para ti y tu familia</h2>
-//           <p className={styles.description}>
-//             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100%
-//             online.
-//           </p>
-//         </div>
-//         <div className={styles.fields}>
-//           <SelectInput id="id" label="Nro. de documento" options={idTypes} />
-//           <TextInput
-//             id="cell"
-//             label="Celular"
-//             type="tel"
-//             value={cell}
-//             onChange={handleCellChange}
-//             required={true}
-//             pattern="\d{9}"
-//             error={cellError}
-//           />
-//         </div>
-//         <div className={styles.consent}>
-//           <Checkbox
-//             label="Acepto la Política de Privacidad"
-//             name="privacy"
-//             className={styles.check}
-//           />
-//           <Checkbox
-//             label="Acepto la Política Comunicaciones Comerciales"
-//             name="commercial"
-//             className={styles.check}
-//           />
-//           <a href="#">Aplican Términos y Condiciones.</a>
-//         </div>
-//         <Button variant="primary" className={styles.button} type="submit">
-//           Cotiza aquí
-//         </Button>
-//       </form>
-//     </section>
-//   );
-// }
