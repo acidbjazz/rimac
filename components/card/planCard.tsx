@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./planCard.module.sass";
 
 import Card from "@components/card/card";

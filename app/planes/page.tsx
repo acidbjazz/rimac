@@ -31,7 +31,7 @@ export default function Plans() {
     getPlans().then((plansData) => {
       setPlan(plansData);
     });
-  }, [setUser]);
+  }, [setPlan]);
 
   const handleTarget = (target: "me" | "other") => {
     if (!firstTargetClicked) {
