@@ -1,28 +1,57 @@
 @use "@styles/ds" as *
   
 .progressBar
-  +grid-system
-  .steps
-    background: $neutral-20
-    +wrap(full)
-    display: flex
-    justify-content: center
-    align-items: center
-    gap: gap()
-    padding: gap() 0
-    .separator
-      width: 32px
-      height: 1px
-      background-image: repeating-linear-gradient(
-        to right,
-        $neutral-60,
-        $neutral-60 4px,
-        transparent 3px,
-        transparent 6px
-      )
-  .navigation
-    +wrap(1)
-    padding: gap(2.5) 0
+  .desktop
+    +grid-system
+    .steps
+      background: $neutral-20
+      +wrap(full)
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: gap()
+      padding: gap() 0
+      .separator
+        width: 32px
+        height: 1px
+        background-image: repeating-linear-gradient(
+          to right,
+          $neutral-60,
+          $neutral-60 4px,
+          transparent 3px,
+          transparent 6px
+        )
+    .navigation
+      +wrap(1)
+      padding: gap(2.5) 0
+  .mobile
+    display: none
+
+@media (width < 900px)
+  .progressBar
+    .desktop
+      display: none
+    .mobile
+      +grid-system
+      border-bottom: 1px solid $neutral-20
+      margin-bottom: gap(3)
+      .steps
+        +wrap(main)
+        display: flex
+        align-items: center
+        gap: gap()
+        padding: gap() 0
+        .step
+          +metadata
+        .bar
+          flex-grow: 1
+          height: 6px
+          background: $neutral-20
+          border-radius: 3px
+          .fill
+            background: $blue-60
+            height: 100%
+            border-radius: 3px
 
 .step
   display: flex

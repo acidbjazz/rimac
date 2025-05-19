@@ -36,5 +36,14 @@
     gap: gap(.5)
     &:hover
       border: 3px solid $neutral-60
-    h2
-      +subtitle
+    .intro
+      > h2
+        +subtitle
+
+@media (width < 600px)
+  .targetCard
+    .card
+      .intro
+        display: flex
+        align-items: center
+        gap: gap(.5)

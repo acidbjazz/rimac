@@ -34,6 +34,9 @@ $column-width: calc((#{$page-width} - (#{$gutter} * (#{$columns} - 1))) / #{$col
   display: grid
   grid-template-columns: 1fr repeat(#{$columns}, minmax(0, #{$column-width})) 1fr
   gap: #{$gutter}
+  @media (width < 600px)
+    grid-template-columns: 8px repeat(4, 1fr) 8px
+    gap: 16px
 
 @mixin wrap($column)
   @if ($column == "full")
@@ -73,12 +76,12 @@ $sans: var(--sans)
 @mixin link
   @include font($sans, 18px, 700, 140%, .4px, none)
   @media (width < 900px)
-    font-size: 18px
+    font-size: 16px
 
 @mixin tag
   @include font($sans, 14px, 700, 140%, .4px, none)
   @media (width < 900px)
-    font-size: 14px
+    font-size: 12px
 
 @mixin title
   @include font($sans, 32px, 700, 120%, 0px, none)
@@ -93,7 +96,7 @@ $sans: var(--sans)
 @mixin button
   @include font($sans, 20px, 700, 140%, .4px, none)
   @media (width < 900px)
-    font-size: 20px
+    font-size: 18px
   
 
 //RADIUS
