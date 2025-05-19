@@ -7,44 +7,23 @@ interface AppContext {
   logged: boolean;
   setLogged: (logged: boolean) => void;
   login?: Login;
-  setLogin: (login: Login) => void; //?
+  setLogin: (login?: Login) => void;
   user?: User;
-  setUser: (user: User) => void; //?
+  setUser: (user?: User) => void;
   plan?: Plan[];
   setPlan: (plan?: Plan[]) => void;
   election?: Plan;
-  setElection: (election: Plan) => void; //?
+  setElection: (election?: Plan) => void;
 }
-
-const fakeLogin: Login = {
-  idType: "dni",
-  idNumber: "12345678",
-  cell: "987654320",
-  privacy: true,
-  commercial: true,
-};
-
-const fakeUser: User = {
-  name: "Rocío",
-  lastName: "Miranda Díaz",
-  birthDay: "02-04-1990",
-};
-
-const fakeElection: Plan = {
-  name: "Plan Familiar",
-  price: 33,
-  description: [],
-  age: 0,
-};
 
 export const AppContext = createContext<AppContext | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [logged, setLogged] = useState<boolean>(false);
-  const [login, setLogin] = useState<Login>(fakeLogin);
-  const [user, setUser] = useState<User>(fakeUser);
+  const [login, setLogin] = useState<Login>();
+  const [user, setUser] = useState<User>();
   const [plan, setPlan] = useState<Plan[]>();
-  const [election, setElection] = useState<Plan>(fakeElection);
+  const [election, setElection] = useState<Plan>();
   const contextValue: AppContext = {
     logged,
     setLogged,
