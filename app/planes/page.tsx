@@ -11,13 +11,25 @@ import { useAppContext } from "@lib/context";
 import { getUser, getPlans } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { useAgeFromBirthday } from "@/lib/hooks";
+import { useRouter } from "next/navigation";
 
 export default function Plans() {
-  const { user, setUser, plan, setPlan } = useAppContext();
+  const { user, setUser, plan, setPlan, logged } = useAppContext();
   const [target, setTarget] = useState<"me" | "other">("me");
   const [firstTargetClicked, setFirstTargetClicked] = useState<boolean>(false);
+  const router = useRouter();
 
   const edad = useAgeFromBirthday(user?.birthDay);
+
+  useEffect(() => {
+    if (!logged) {
+      router.replace("/");
+    }
+  }, [logged, router]);
+
+  if (!logged) {
+    return null;
+  }
 
   useEffect(() => {
     getUser().then((userData) => {
@@ -37,8 +49,6 @@ export default function Plans() {
     }
     setTarget(target);
   };
-
-  console.log("store user:", user);
 
   return (
     <section className={styles.plansPage}>

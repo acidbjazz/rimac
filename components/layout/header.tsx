@@ -9,11 +9,11 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.content}>
         <Logo className={styles.logo} />
-        <nav>
+        {/* <nav>
           <Link href="/">Home</Link>
           <Link href="/planes">Plans</Link>
           <Link href="/resumen">Summary</Link>
-        </nav>
+        </nav> */}
         <div className={styles.contact}>
           <div className={styles.buy}>¡Compra por este medio!</div>
           <a className={styles.phone} href="tel:(01) 411 6001">

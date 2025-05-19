@@ -6,10 +6,23 @@ import ProgressBar from "@components/layout/progressBar";
 import Card from "@components/card/card";
 import Family from "@assets/icons/family.svg";
 import { useAppContext } from "@lib/context";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Summary() {
-  const { user, login, election } = useAppContext();
-  console.log(election);
+  const { user, login, election, logged } = useAppContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!logged) {
+      router.replace("/");
+    }
+  }, [logged, router]);
+
+  if (!logged) {
+    return null;
+  }
+
   return (
     <section className={styles.summary}>
       <ProgressBar href={"/planes"} activeStep="2" />
