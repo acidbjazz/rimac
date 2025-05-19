@@ -21,6 +21,8 @@ export default function Plans() {
   const [target, setTarget] = useState<"me" | "other">("me");
   const [firstTargetClicked, setFirstTargetClicked] = useState<boolean>(false);
 
+  const edad = useAgeFromBirthday(user?.birthDay);
+
   useEffect(() => {
     getUser().then((userData) => {
       setUser(userData);
@@ -39,8 +41,6 @@ export default function Plans() {
     }
     setTarget(target);
   };
-
-  const edad = user?.birthDay ? useAgeFromBirthday(user.birthDay) : null;
 
   console.log("store user:", user);
 

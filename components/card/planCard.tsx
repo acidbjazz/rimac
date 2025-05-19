@@ -17,7 +17,7 @@ interface PlanCard {
   className?: string;
 }
 
-export default function planCard({
+export default function PlanCard({
   target = "me",
   title,
   description,
