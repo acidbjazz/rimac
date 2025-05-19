@@ -24,7 +24,8 @@
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
       "@styles/*": ["./styles/*"]
-    }
+    },
+    "types": ["jest", "@testing-library/jest-dom", "node"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
