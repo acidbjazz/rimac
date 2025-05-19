@@ -108,15 +108,14 @@ export default function Home() {
 
     if (formIsValid) {
       const LoginData: Login = {
-        // Asegúrate que coincida con la interfaz FormData
         idType,
         idNumber,
         cell,
         privacy,
         commercial,
       };
-      setLogin(LoginData); // Usarías setLogin del contexto
-      setLogged(true); // Usarías setLogged del contexto
+      setLogin(LoginData);
+      setLogged(true);
 
       console.log("Formulario Válido. Datos:", LoginData);
       router.push("/planes");

@@ -1,20 +1,16 @@
-import type { UserApiData, PlanDetails } from "@lib/context";
+import type { User, Plan } from "./definitions";
 
 const USER_API_URL = "https://rimac-front-end-challenge.netlify.app/api/user.json";
 const PLANS_API_URL = "https://rimac-front-end-challenge.netlify.app/api/plans.json";
 
-export async function getUser(): Promise<UserApiData> {
+export async function getUser(): Promise<User> {
   const response = await fetch(USER_API_URL);
-  const data: UserApiData = await response.json();
+  const data: User = await response.json();
   return data;
 }
 
-interface PlansApiResponse {
-  list: PlanDetails[];
-}
-
-export async function getPlans(): Promise<PlanDetails[]> {
+export async function getPlans(): Promise<Plan[]> {
   const response = await fetch(PLANS_API_URL);
-  const data: PlansApiResponse = await response.json();
+  const data: { list: Plan[] } = await response.json();
   return data.list;
 }

@@ -1,25 +1,27 @@
-import styles from "./userCard.module.sass";
+import styles from "./targetCard.module.sass";
 
 import Card from "@components/card/card";
 
-interface UserCard {
+interface TargetCard {
   title: string;
   description: string;
   value: string;
   icon?: React.ElementType;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function userCard({
+export default function targetCard({
   title,
   description,
   value,
   className = "",
   icon: Icon,
-}: UserCard) {
+  onClick,
+}: TargetCard) {
   return (
-    <label className={`${styles.userCard} ${className}`}>
-      <input type="radio" name="opcion" value={value}></input>
+    <label className={`${styles.targetCard} ${className}`}>
+      <input type="radio" name="opcion" value={value} onClick={onClick} />
       <Card className={styles.card}>
         <div className={styles.check}></div>
         {Icon && <Icon />}
