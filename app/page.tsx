@@ -16,11 +16,11 @@ export default function Home() {
   const { setLogged, setLogin } = useAppContext();
 
   const [idType, setIdType] = useState<"dni" | "ce">("dni");
-  const [idNumber, setIdNumber] = useState("12345678");
+  const [idNumber, setIdNumber] = useState("");
   const [idNumberError, setIdNumberError] = useState("");
-  const [cell, setCell] = useState("987654321");
+  const [cell, setCell] = useState("");
   const [cellError, setCellError] = useState("");
-  const [privacy, setPrivacy] = useState(true);
+  const [privacy, setPrivacy] = useState(false);
   const [privacyError, setPrivacyError] = useState("");
   const [commercial, setCommercial] = useState(false);
   const [commercialError, setCommercialError] = useState("");
